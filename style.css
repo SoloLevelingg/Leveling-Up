@@ -1,0 +1,216 @@
+/* General body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main container styling */
+.container {
+    max-width: 100%;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+/* Title styles */
+.title {
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+    animation: fadeIn 1s ease-in-out;
+    margin-top: 10px;
+}
+
+/* Level and day display */
+.level-day {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    animation: fadeIn 1s ease-in-out;
+    color: #444;
+}
+
+/* Task list styling */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Task box styling */
+.task {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: slideIn 0.5s ease-out;
+    text-align: left;
+    font-size: 15px;
+    color: #444;
+    border: 1px solid #ddd;
+    margin: 5px;
+}
+
+.task label {
+    display: block;
+    margin: 5px 0;
+}
+
+.task .points,
+.task .punishment {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Hover effect on tasks */
+.task:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Checkbox styles */
+input[type="checkbox"] {
+    margin-right: 10px;
+    transition: transform 0.2s ease;
+}
+
+input[type="checkbox"]:checked {
+    transform: scale(1.2);
+}
+
+/* Button styles */
+button {
+    padding: 12px 25px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Feedback section styles */
+#feedback {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 30px;
+    font-weight: bold;
+    color: #d32f2f;
+    opacity: 0;
+    animation: fadeInFeedback 1.5s forwards;
+}
+
+#feedback.success {
+    color: #388e3c;
+}
+
+#feedback.fail {
+    color: #d32f2f;
+}
+
+/* Animations for tasks */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFeedback {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Responsive Styles for smaller screens */
+@media (max-width: 768px) {
+    .title {
+        font-size: 24px;
+    }
+
+    .level-day {
+        font-size: 18px;
+    }
+
+    .task {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 16px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 22px;
+    }
+
+    .level-day {
+        font-size: 16px;
+    }
+
+    .task {
+        font-size: 12px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+}
