@@ -49,7 +49,7 @@ const levels = [
 // Initial state setup
 let currentLevel = 0;
 let currentDay = 0;
-let taskCompleted = new Array(7).fill(false);
+let taskCompleted = new Array(levels[currentLevel].length).fill(false);
 
 function displayTasks() {
     const taskList = document.getElementById("taskList");
@@ -70,7 +70,7 @@ function displayTasks() {
         taskElement.classList.add("task");
 
         const taskContent = `
-            <label><input type="checkbox" id="task-${index}" onclick="toggleTask(${index})"> ${task.task}</label>
+            <label><input type="checkbox" id="task-${index}" onclick="toggleTask(${index})" ${taskCompleted[index] ? 'checked' : ''}> ${task.task}</label>
             <div class="points">${task.points}</div>
             <div class="punishment">Punishment: ${task.punishment}</div>
         `;
@@ -89,7 +89,12 @@ document.getElementById("nextLevelButton").addEventListener("click", () => {
         if (currentDay >= 7) {
             currentDay = 0;
             currentLevel++;
+            if (currentLevel >= levels.length) {
+                currentLevel = levels.length - 1; // Prevent going beyond the last level
+                showFeedback("success", "Congratulations, you've completed all levels!");
+            }
         }
+        taskCompleted = new Array(levels[currentLevel].length).fill(false); // Reset task completion state
         displayTasks();
         showFeedback("success", "Great! You've completed all tasks for today!");
     } else {
